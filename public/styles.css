@@ -20,7 +20,6 @@ th {
   padding: 8px;
 }
 
-/* TODO is this the background color for the web manifest? */
 tr:nth-child(even) {
   background-color: #dddddd;
 }

@@ -27,8 +27,7 @@ self.addEventListener("install", function (evt) {
     caches.open(CACHE_NAME).then(cache => cache.addAll(FILES_TO_CACHE))
   );
 
-  // tell the browser to activate this service worker immediately once it
-  // has finished installing
+  // tell the browser to activate this service worker immediately once it has finished installing
   self.skipWaiting();
 });
 
