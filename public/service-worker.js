@@ -1,3 +1,4 @@
+// Add a service-worker for caching information
 const FILES_TO_CACHE = [
   "/",
   "/index.html",
@@ -12,9 +13,9 @@ const FILES_TO_CACHE = [
 const CACHE_NAME = "static-cache-v2";
 const DATA_CACHE_NAME = "data-cache-v1";
 
-// install
+// Install
 self.addEventListener("install", function (evt) {
-  // pre cache image data
+  // Pre-cache image data
   evt.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
       console.log("Your files were pre-cached successfully!");
@@ -22,16 +23,16 @@ self.addEventListener("install", function (evt) {
     })
   );
 
-  // pre cache all static assets
+  // Pre-cache all static assets
   evt.waitUntil(
     caches.open(CACHE_NAME).then(cache => cache.addAll(FILES_TO_CACHE))
   );
 
-  // tell the browser to activate this service worker immediately once it has finished installing
+  // Tell the browser to activate this service worker immediately once it has finished installing
   self.skipWaiting();
 });
 
-// activate
+// Activate caching
 self.addEventListener("activate", function (evt) {
   evt.waitUntil(
     caches.keys().then(keyList => {
@@ -49,7 +50,7 @@ self.addEventListener("activate", function (evt) {
   self.clients.claim();
 });
 
-// fetch
+// Fetch data to cache
 self.addEventListener("fetch", evt => {
   if (evt.request.url.includes("/api/")) {
     evt.respondWith(
@@ -66,7 +67,7 @@ self.addEventListener("fetch", evt => {
               return response;
             })
             .catch(err => {
-              // Network request failed, try to get it from the cache.
+              // If network request failed, try to get it from the cache
               return cache.match(evt.request);
             });
         })
