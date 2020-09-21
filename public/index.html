@@ -4,19 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!-- TODO is this what goes in the web manifest? -->
     <meta name="theme-color" content="#317EFB" />
     <link
       rel="shortcut icon"
       href="icons/icon-192x192.png"
       type="image/x-icon"
     />
-
+    <!-- Add font awesome -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <!-- Link to app css -->
     <link rel="stylesheet" href="styles.css" />
+    <!-- Add manifest -->
     <link rel="manifest" href="/manifest.webmanifest" />
     <title>Budget Tracker</title>
   </head>
@@ -53,10 +54,12 @@
 
       <canvas id="myChart"></canvas>
     </div>
-
+    <!-- Link for cdn used for chart -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <!-- Link to javascript files need for app to function -->
     <script src="index.js"></script>
     <script src="db.js"></script>
+    <!-- Add javascript for service-worker -->
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
