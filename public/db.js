@@ -66,5 +66,12 @@ function checkDatabase() {
   };
 }
 
+// Prevents having two records when coming back online
+function deletePending() {
+  const transaction = db.transaction(["pending"], "readwrite");
+  const store = transaction.objectStore("pending");
+  store.clear();
+}
+
 // Add a listener for the app coming back online
 window.addEventListener("online", checkDatabase);
