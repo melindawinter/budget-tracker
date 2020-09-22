@@ -23,6 +23,8 @@ This app is intended for tracking a budget. Type in a name for a transaction, th
 
 ![app](budget-tracker.png)
 
+When the app is used offline, it will store any data that is added in the cache and when the app is brought back online it will be added to the database.Please watch this video to see the offline functionality in action: <https://drive.google.com/file/d/1p6zeF8lk0wbDIsJ2VEOZp6i-uJnYyCQ3/view?usp=sharing>.
+
 ## Technologies
 
 JavaScript, APIs, Node, Express, Mongoose, MongoDB Atlas, MongoDB Compass, Heroku, Service-Worker, Manifest
